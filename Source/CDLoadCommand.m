@@ -96,6 +96,11 @@
         case LC_DYLIB_CODE_SIGN_DRS:   targetClass = [CDLCLinkeditData class]; break; // Designated Requirements
 
         case LC_BUILD_VERSION:         targetClass = [CDLCBuildVersion class]; break;
+            
+        case LC_DYLD_EXPORTS_TRIE:
+        case LC_DYLD_CHAINED_FIXUPS:
+            targetClass = [CDLCLinkeditData class];
+            break;
 
         case LC_LINKER_OPTION:
         case LC_LINKER_OPTIMIZATION_HINT:
@@ -208,6 +213,9 @@
         case LC_VERSION_MIN_WATCHOS:      return @"LC_VERSION_MIN_WATCHOS";
         case LC_NOTE:                     return @"LC_NOTE";
         case LC_BUILD_VERSION:            return @"LC_BUILD_VERSION";
+
+        case LC_DYLD_EXPORTS_TRIE:    return @"LC_DYLD_EXPORTS_TRIE";
+        case LC_DYLD_CHAINED_FIXUPS:  return @"LC_DYLD_CHAINED_FIXUPS";
 
         default:
             break;
